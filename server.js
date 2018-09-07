@@ -9,7 +9,21 @@ var apiRoutes         = require('./routes/api.js');
 var fccTestingRoutes  = require('./routes/fcctesting.js');
 var runner            = require('./test-runner');
 
+const helmet = require('helmet')
+
 var app = express();
+
+app.use(helmet({
+  noCache: true,
+  hidePoweredBy: { setTo: 'PHP 4.2.0' },
+  contentSecurityPolicy: {   // enable and configure
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+    }
+  }
+}))
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
