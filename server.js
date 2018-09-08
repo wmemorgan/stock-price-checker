@@ -19,9 +19,8 @@ app.use(helmet({
   hidePoweredBy: { setTo: 'PHP 4.2.0' },
   contentSecurityPolicy: {   // enable and configure
     directives: {
-      defaultSrc: ["'self'"],
       styleSrc: ["'self'"],
-      scriptSrc: ["'self'"],
+      scriptSrc: ["'self'", "code.jquery.com"],
     }
   }
 }))
