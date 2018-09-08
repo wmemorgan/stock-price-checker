@@ -29,7 +29,8 @@ exports.getStockPrice = async (req, res) => {
   for (let i = 0; i < symbol.length; i++) {
     let ticker = symbol[i].toUpperCase()
     console.log(`ticker is: ${ticker}`)
-    let like = symbol[i].like ? 1 : 0
+    console.log(`symbol[i].like: `, symbol[i].like)
+    let like = req.query.like ? 1 : 0
     console.log(`like is : ${like}`)
     let query = { symbol: ticker }
     console.log(`query is: `, query)
