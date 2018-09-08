@@ -24,7 +24,7 @@ exports.getStockPrice = async (req, res) => {
   console.log(`req.ip is: `, req.ip)
   let symbol = Array.isArray(req.query.stock) ? req.query.stock : req.query.stock.split(',')
   console.log(`length of symbol.length: `, symbol.length)
-if (symbol.length > 1) {
+
   let arr = { stockData: [] }
   for (let i = 0; i < symbol.length; i++) {
     let ticker = symbol[i].toUpperCase()
@@ -40,17 +40,15 @@ if (symbol.length > 1) {
       let stockPrice = await axios.get(stockPriceEndPoint)
       console.log(`stockPrice `, stockPrice.data)
       let symbolInfo = await db.findOne(query)
-      console.log(`symbolInfo `, symbolInfo.symbol)
+      console.log(`symbolInfo `, symbolInfo)
       // Upsert stock ticker symbol and like status into database
-      if (!symbolInfo || !(symbolInfo.ip.includes(req.ip) && symbolInfo.like > 0)) {
+      if (symbolInfo == null || !(symbolInfo.ip.includes(req.ip) && symbolInfo.like > 0)) {
         let action = {
           $inc: { like: like },
           $push: { "ip": req.ip }
         }
         db.updateOne(query, action, { upsert: true }, (err, doc) => { if (err) throw err; })
-        console.log(`Add ${symbolInfo} to database`)
         symbolInfo = await db.findOne(query)
-        console.log(`symbolInfo: `, symbolInfo)
       }
       let stockData = {
         stock: symbolInfo.symbol,
@@ -58,134 +56,25 @@ if (symbol.length > 1) {
         likes: symbolInfo.like
       }
       arr.stockData.push(stockData)
-      // console.log(arr)
     } catch (error) {
       console.log(error)
       res.status(500).send(error)
     }
-    // arr.stockData.push(query)
-
-
   }
-  let rellikes0 = arr.stockData[0].likes - arr.stockData[1].likes
-  let rellikes1 = arr.stockData[1].likes - arr.stockData[0].likes
-  arr.stockData[0]['rel_likes'] = rellikes0
-  delete arr.stockData[0].likes
-  arr.stockData[1]['rel_likes'] = rellikes1
-  delete arr.stockData[1].likes
-
-  console.log(`arr.stockData[0]`, arr.stockData[0])
-  console.log(arr)
-  res.send(arr)
-} else {
-  let symbol = req.query.stock.toUpperCase()
-  let query = { symbol: symbol }
-  let like = symbol.like ? 1 : 0
-  let stockPriceEndPoint = `https://api.iextrading.com/1.0/stock/${symbol}/price`
-  try {
-    // Retrieve latest stock price
-    const stockPrice = await axios.get(stockPriceEndPoint)
-    let symbolInfo = await db.findOne(query)
-
-    // Upsert stock ticker symbol and like status into database
-    if (!symbolInfo || !(symbolInfo.ip.includes(req.ip) && symbolInfo.like > 0)) {
-      console.log('New IP address or like for the first time')
-      let action = {
-        $inc: { like: like },
-        $push: { "ip": req.ip }
-      }
-      db.updateOne(query, action, { upsert: true }, (err, doc) => { if (err) throw err; })
-      symbolInfo = await db.findOne(query)
-    }
-
-    //Collect and publish stock price and number of likes
-    let stockData = {
-      stockData : {
-        stock: symbolInfo.symbol,
-        price: stockPrice.data,
-        likes: symbolInfo.like
-      }
-    }
-    console.log(stockData)
-    res.send(stockData)
-  } catch (error) {
-    console.error('Error:', error)
-  }
-}
-  
-  
-  // res.send(symbol)
-  
-  // let arr = {stockData: []}
-  // for (let i = 0; i < symbol.lenght; i++) {
-  // let ticker = symbol[i].toUpperCase()
-  // console.log(`ticker symbol is: ${symbol}`)
-  // let like = symbol[i].like ? 1 : 0
-  // console.log(`like is : ${like}`)
-  // let query = { symbol: ticker }
-  // console.log(`query is: ${query}`)
-  // let stockPriceEndPoint = `https://api.iextrading.com/1.0/stock/${ticker}/price`
-  // try {
-  //   // Retrieve latest stock price
-  //   const stockPrice = await axios.get(stockPriceEndPoint)
-  //   let symbolInfo = await db.findOne(query)
-
-  //   // Upsert stock ticker symbol and like status into database
-  //   if (!symbolInfo || !(symbolInfo.ip.includes(req.ip) && symbolInfo.like > 0)) {
-  //     let action = {
-  //       $inc: { like: like },
-  //       $push: { "ip": req.ip }
-  //     }
-  //     db.updateOne(query, action, { upsert: true }, (err, doc) => { if (err) throw err; })
-  //     console.log(`Add ${symbolInfo.symbol} to database`)
-  //     symbolInfo = await db.findOne(query)
-  //     let stockData = {
-  //       stockData: {
-  //         stock: symbolInfo.symbol,
-  //         price: stockPrice.data,
-  //         likes: symbolInfo.like
-  //       }
-  //     }
-  //     arr.stockData.push(stockData)
-  //     console.log(arr)
-  //   }
-  // } catch (error) {
-  //   console.log(error)
-  //   res.status(500).send(error)
-  // }
-  // }
-
-  
-  // const stockPriceEndPoint = `https://api.iextrading.com/1.0/stock/${symbol}/price`
-  // try {
-  //   // Retrieve latest stock price
-  //   const stockPrice = await axios.get(stockPriceEndPoint)
-  //   let symbolInfo = await db.findOne(query)
-
-  //   // Upsert stock ticker symbol and like status into database
-  //   if (!symbolInfo || !(symbolInfo.ip.includes(req.ip) && symbolInfo.like > 0)) {
-  //     console.log('You haven')
-  //     let action = {
-  //       $inc: { like: like },
-  //       $push: { "ip": req.ip }
-  //     }
-  //     db.updateOne(query, action, { upsert: true }, (err, doc) => { if (err) throw err; })
-  //     symbolInfo = await db.findOne(query)
-  //   }
-
-    // Collect and publish stock price and number of likes
-    // let stockData = {
-    //   stockData : {
-    //     stock: symbolInfo.symbol,
-    //     price: stockPrice.data,
-    //     likes: symbolInfo.like
-    //   }
-    // }
-  //   console.log(stockData)
-  //   res.send(stockData)
-  // } catch (error) {
-  //   console.error('Error:', error)
-  // }
+  if (symbol.length > 1) {
+    let rellikes0 = arr.stockData[0].likes - arr.stockData[1].likes
+    let rellikes1 = arr.stockData[1].likes - arr.stockData[0].likes
+    arr.stockData[0]['rel_likes'] = rellikes0
+    delete arr.stockData[0].likes
+    arr.stockData[1]['rel_likes'] = rellikes1
+    delete arr.stockData[1].likes
+    
+    console.log(arr)
+    res.send(arr)
+  } else {
+    console.log(`arr.stockData[0]`, arr.stockData[0])
+    res.send(arr.stockData[0])
+  }  
 }
 
 
