@@ -55,11 +55,28 @@ suite('Functional Tests', function() {
       });
       
       test('2 stocks', function(done) {
-        
+        chai.request(server)
+        .get('/api/stock-prices')
+        .query({stock: ['goog','fb']})
+        .end(function(err, res) {
+          assert.equal(res.status, 200)
+          assert.equal(res.body.stockData[0].stock, 'GOOG')
+          assert.equal(res.body.stockData[1].stock, 'FB')
+          done()
+        })
       });
       
       test('2 stocks with like', function(done) {
-        
+        chai.request(server)
+          .get('/api/stock-prices')
+          .query({ stock: ['t', 'vz'], like: true  })
+          .end(function (err, res) {
+            assert.equal(res.status, 200)
+            assert.equal(res.body.stockData[0].stock, 'T')
+            assert.equal(res.body.stockData[1].stock, 'VZ')
+            assert.equal(res.body.stockData[0].rel_likes, 0)
+            done()
+          })
       });
       
     });
