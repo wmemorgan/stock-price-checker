@@ -24,20 +24,27 @@ exports.getStockPrice = async (req, res) => {
   console.log(`req.ip is: `, req.ip)
   let symbol = req.query.stock.toUpperCase()
   let like = req.query.like ? 1 : 0
+  console.log(`like is : ${like}`)
   let query = { symbol: symbol }
   let stockData = []
   const stockPriceEndPoint = `https://api.iextrading.com/1.0/stock/${symbol}/price`
   try {
     // Retrieve latest stock price
     const stockPrice = await axios.get(stockPriceEndPoint)
-    // Upsert stock ticker symbol and like status into database
-    let action = {
-      $inc: { like: like },
-      $push: { "ip": req.ip }
-    }
-    db.updateOne(query, action, { upsert: true }, (err, doc) => { if (err) throw err; })
-    // Collect and publish stock price and number of likes
     let symbolInfo = await db.findOne(query)
+
+    // Upsert stock ticker symbol and like status into database
+    if (!symbolInfo || !(symbolInfo.ip.includes(req.ip) && symbolInfo.like > 0)) {
+      console.log('You haven')
+      let action = {
+        $inc: { like: like },
+        $push: { "ip": req.ip }
+      }
+      db.updateOne(query, action, { upsert: true }, (err, doc) => { if (err) throw err; })
+      symbolInfo = await db.findOne(query)
+    }
+    
+    // Collect and publish stock price and number of likes
     let stockData = {
       stockData : {
         stock: symbolInfo.symbol,
