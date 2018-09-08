@@ -40,7 +40,7 @@ exports.getStockPrice = async (req, res) => {
       let stockPrice = await axios.get(stockPriceEndPoint)
       console.log(`stockPrice `, stockPrice.data)
       let symbolInfo = await db.findOne(query)
-      console.log(`symbolInfo `, symbolInfo)
+      
       // Upsert stock ticker symbol and like status into database
       if (symbolInfo == null || !(symbolInfo.ip.includes(req.ip) && symbolInfo.like > 0)) {
         let action = {
