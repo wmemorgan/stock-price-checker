@@ -70,7 +70,9 @@ if (symbol.length > 1) {
   let rellikes0 = arr.stockData[0].likes - arr.stockData[1].likes
   let rellikes1 = arr.stockData[1].likes - arr.stockData[0].likes
   arr.stockData[0]['rel_likes'] = rellikes0
+  delete arr.stockData[0].likes
   arr.stockData[1]['rel_likes'] = rellikes1
+  delete arr.stockData[1].likes
 
   console.log(`arr.stockData[0]`, arr.stockData[0])
   console.log(arr)
