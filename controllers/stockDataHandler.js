@@ -21,6 +21,7 @@ mongo.connect(CONNECTION_STRING, async (err, conn) => {
 // }
 
 exports.getStockPrice = async (req, res) => {
+  console.log(`req.query: `, req.query)
   console.log(`req.ip is: `, req.ip)
   let symbol = Array.isArray(req.query.stock) ? req.query.stock : req.query.stock.split(',')
   console.log(`length of symbol.length: `, symbol.length)
@@ -29,7 +30,6 @@ exports.getStockPrice = async (req, res) => {
   for (let i = 0; i < symbol.length; i++) {
     let ticker = symbol[i].toUpperCase()
     console.log(`ticker is: ${ticker}`)
-    console.log(`symbol[i].like: `, symbol[i].like)
     let like = req.query.like ? 1 : 0
     console.log(`like is : ${like}`)
     let query = { symbol: ticker }
