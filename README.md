@@ -1,6 +1,8 @@
 **FreeCodeCamp**- Information Security and Quality Assurance
 ------
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wmemorgan/stock-price-checker.svg)](https://greenkeeper.io/)
+
 Project Stock Price Checker
 
 1) SET NODE_ENV to `test` without quotes and set DB to your mongo connection string
