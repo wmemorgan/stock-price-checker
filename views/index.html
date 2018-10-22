@@ -33,26 +33,28 @@
   
       </div>
     </section>
-    <hr style='margin: 50px'>
-    <div id='testui'>
-    
-      <h3>Get single price and total likes</h3>
-      <form id="testForm2" class="border">
-        <input type="text" name="stock" placeholder="goog" style="width: 100px" required=''>
-        <input type="checkbox" name="like" value=true> Like?<br>
-        <button type="submit">Get Price!</button>
-      </form>
-      <h3>Compare and get relative likes</h3>
-      <form id="testForm" class="border">
-        <input type="text" name="stock" placeholder="goog" style="width: 100px" required=''>
-        <input type="text" name="stock" placeholder="msft" style="width: 100px" required=''>
-        <input type="checkbox" name="like" value=true> Like both?<br>
-        <button type="submit">Get Price!</button>
-      </form>
+    <!-- Frontend -->
+    <section class="section">
+      <!-- Test UI -->
+      <div id="testui">
+        <form id="testForm2" class="border">
+          <h3>Get single price and total likes</h3>
+          <input type="text" name="stock" placeholder="goog" required=''>
+          <input type="checkbox" name="like" value=true> Like?<br>
+          <button type="submit">Get Price!</button>
+        </form>
+      
+        <form id="testForm" class="border">
+          <h3>Compare and get relative likes</h3>
+          <input type="text" name="stock" placeholder="goog" required=''>
+          <input type="text" name="stock" placeholder="msft" required=''>
+          <input type="checkbox" name="like" value=true> Like both?<br>
+          <button type="submit">Get Price!</button>
+        </form>
+      </div>
       <code id='jsonResult'></code>
-    </div>
-    <hr style='margin: 50px; margin-top: 200px'>
-    <section class="stock-data-credits">
+    </section>
+    <section class="section" id="stock-data-credits">
       <p>Data provided for free by <a href="https://iextrading.com/developer">IEX</a>. View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a>.</p>
       <p></p>
 
