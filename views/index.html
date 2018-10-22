@@ -2,41 +2,40 @@
 <html>
   <head>
     <title>Stock Price Checker</title>
-    <meta name="description" content="A cool thing made with HyperDev">
+    <meta name="description" content="A REST API that retrieves the latest stock price and monitors if it has been previously selected.">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#022140">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous">
     <link rel="stylesheet" href="./public/style.css">
   </head>
   <body>
-    <header>
-      <h1>
-        US Stock Price Checker
-      </h1>
-    </header>
-    <div id='userstories' style='margin-left: 5%; margin-top: 5%'>
-      <h3>User Stories</h3>
-      <ol>
-        <li>Set the content security policies to only allow loading of scripts and css from your server.</li>
-        <li>I can <b>GET</b> <code>/api/stock-prices</code> with form data containing a Nasdaq <i>stock</i> ticker and recieve back an object <i>stockData</i>.</li>
-        <li>In <i>stockData</i>, I can see the <i>stock</i>(string, the ticker), <i>price</i>(decimal in string format), and <i>likes</i>(int).</li>
-        <li>I can also pass along field <i>like</i> as <b>true</b>(boolean) to have my like added to the stock(s). Only 1 like per ip should be accepted.</li>
-        <li>If I pass along 2 stocks, the return object will be an array with both stock's info but instead of <i>likes</i>, it will display <i>rel_likes</i>(the difference between the likes on both) on both.</li>
-        <li>A good way to receive current price is the following external API(replacing 'GOOG' with your stock): <code>https://finance.google.com/finance/info?q=NASDAQ%3aGOOG</code></li>
-        <li>All 5 functional tests are complete and passing.</li>
-      </ol>
-      <h3>Example usage:</h3>
-      <code>/api/stock-prices?stock=goog</code><br>
-      <code>/api/stock-prices?stock=goog&amp;like=true</code><br>
-      <code>/api/stock-prices?stock=goog&amp;stock=msft</code><br>
-      <code>/api/stock-prices?stock=goog&amp;stock=msft&amp;like=true</code><br>
-      <h3>Example return:</h3>
-      <code>{"stockData":{"stock":"GOOG","price":"786.90","likes":1}}</code><br>
-      <code>{"stockData":[{"stock":"MSFT","price":"62.30","rel_likes":-1},{"stock":"GOOG","price":"786.90","rel_likes":1}]}</code>
+  <!-- Header -->
+  <div class="page-header">
+    <!-- Logo -->
+    <div id="logo" class="brand">
+      <a href="/">Wilfred Morgan</a>
     </div>
+  </div>
+
+  <!-- Main Body -->
+  <div class="container" id="main">
+    <!-- Home Page -->
+    <section id="intro">
+      <div class="container">
+        <h1 id="headline">Stock Price Checker</h1>
+        <div class="section-doc">
+          <p>
+            A REST API that retrieves the latest stock price and monitors if it has been previously selected.
+          </p>
+        </div>
+  
+      </div>
+    </section>
     <hr style='margin: 50px'>
-    <div id='testui' style='margin-left: 5%'>
-      <h2 style="text-align: left">Front-End:</h2>
+    <div id='testui'>
+    
       <h3>Get single price and total likes</h3>
       <form id="testForm2" class="border">
         <input type="text" name="stock" placeholder="goog" style="width: 100px" required=''>
@@ -53,10 +52,42 @@
       <code id='jsonResult'></code>
     </div>
     <hr style='margin: 50px; margin-top: 200px'>
-    <footer class="footer">
+    <section class="stock-data-credits">
       <p>Data provided for free by <a href="https://iextrading.com/developer">IEX</a>. View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a>.</p>
       <p></p>
 
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="cta-group">
+        <div class="cta-text">
+          <p>Need help with your project?</p>
+          <p>Reach out to me at
+            <a href="mailto:wilfred@wilfredmorgan.com?subject=Question" class="contact-btn">wilfred@wilfredmorgan.com</a>
+          </p>
+        </div>
+    
+      </div>
+    
+      <div class="social-media-group">
+        <div class="social-cta">
+          <p>Connect with me:</p>
+        </div>
+        <div class="social-media-icons">
+          <a href="https://www.linkedin.com/in/wilfredmorgan/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/wmemorgan" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:wilfred@wilfredmorgan.com?subject=Question" class="contact-btn">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div id="copyright-info">
+        <p><a href="https://wilfredmorgan.com">wilfredmorgan.com</a></p>
+      </div>
     </footer>
     <!-- Your web-app is https, so your scripts need to be too -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
