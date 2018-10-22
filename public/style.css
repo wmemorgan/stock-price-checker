@@ -48,51 +48,10 @@ body {
   height: 100%;
 }
 
-h1 {
+/* h1 {
   font-weight: bold;
   
-}
-
-form {
-  margin: 0 auto;
-  /* margin-bottom: 25px; */
-  padding: 1rem;
-  background: var(--overlay-bg-color);
-  display: block;
-  width: 100%;
-  max-width: 25rem;
-	border-radius: 5px;
-}
-
-input {
-  display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 16px;
-}
-
-input[type=submit] {
-  font-size: 16px;
-  border-radius: 3px;
-  background-color: #E4F1FE;
-  border: 1px solid grey;
-  box-shadow: 2px 2px #999;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #FFFEC4;
-}
-
-code {
-  font-family: monospace;
-  font-size: 1.2em;
-  background-color: var(--light-primary-color);
-  padding: 0.25rem;
-}
+} */
 
 /*-----page header-----*/
 .page-header {
@@ -102,7 +61,6 @@ code {
   position: fixed;
   top: 0; 
   text-transform: uppercase;
-
 }
 
 /*----logo----*/
@@ -190,16 +148,88 @@ section .container {
 
 /*-------Test UI------*/
 #testui {
+  width: 80%;
   margin: 0 auto;
   justify-content: space-evenly;
   display: grid;
   grid-template-columns: repeat(auto-fit, 350px);
+  grid-column-gap: 1rem;
+}
+
+/*****Form****/
+.form {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-column-gap: 0;
+  grid-gap: 1rem;
+  padding: 2rem ;
+  border: 2px solid red;
+}
+
+.like-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.search-btn {
+  grid-column: span 4;
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: #E4F1FE;
+  border: 1px solid grey;
+  box-shadow: 2px 2px #999;
+  cursor: pointer;
+}
+
+#multi-stock-form .search-btn {
+    grid-column: 0 / 4;
+}
+
+.search-btn:hover {
+  background-color: #FFFEC4;
+}
+
+
+
+/* form {
+  margin: 0 auto;
+  padding: 1rem;
+  background: var(--overlay-bg-color);
+  display: block;
+  width: 100%;
+  max-width: 25rem;
+	border-radius: 5px;
+} */
+
+.input-field-txt {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+
+
+.code {
+  font-family: monospace;
+  font-size: 1.2rem;
+  background-color: var(--light-primary-color);
+  padding: 0.25rem;
 }
 
 #jsonResult {
- margin: 0 auto;
- width: 100%;
- border: 1px solid blue;
+  width: 80%;
+  margin: 2rem auto;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+#stock-data-credits {
+  text-align: center;
 }
 
 /*-------footer------*/
