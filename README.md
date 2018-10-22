@@ -36,8 +36,7 @@ A REST API that retrieves the latest stock price and monitors if it has been pre
 {"stockData":[{"stock":"MSFT","price":"62.30","rel_likes":-1},{"stock":"GOOG","price":"786.90","rel_likes":1}]}
 ```
 ---
-**Go to API demo app:**
-
+**API demo:**
 [https://wme-stock-price-checker.glitch.me/](https://wme-stock-price-checker.glitch.me/)
 
 
