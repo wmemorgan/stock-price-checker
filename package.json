@@ -1,6 +1,6 @@
 {
 	"name": "wme-stock-price-checker",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "An app for checking the latest stock prices of publicly traded companies",
 	"main": "server.js",
 	"scripts": {
