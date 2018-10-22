@@ -1,20 +1,20 @@
 $(function () {
-  $('#testForm').submit(function (e) {
+  $('#multi-stock-form').submit(function (e) {
     $.ajax({
       url: '/api/stock-prices',
       type: 'get',
-      data: $('#testForm').serialize(),
+      data: $('#multi-stock-form').serialize(),
       success: function (data) {
         $('#jsonResult').text(JSON.stringify(data));
       }
     });
     e.preventDefault();
   });
-  $('#testForm2').submit(function (e) {
+  $('#single-stock-form').submit(function (e) {
     $.ajax({
       url: '/api/stock-prices',
       type: 'get',
-      data: $('#testForm2').serialize(),
+      data: $('#single-stock-form').serialize(),
       success: function (data) {
         $('#jsonResult').text(JSON.stringify(data));
       }
