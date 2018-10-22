@@ -39,7 +39,7 @@
 }
 
 body {
-  font-family: Lato, Helvetica, Sans-Serif;
+  font-family: Roboto, Helvetica, Sans-Serif;
   letter-spacing: 0.042rem;
   background-color: var(--primary-bg-color);
   overflow-x: hidden;
@@ -48,26 +48,29 @@ body {
   height: 100%;
 }
 
-/* h1 {
-  font-weight: bold;
-  
+/* .page-container {
+  position: relative;
+  min-height: 120vh;
 } */
 
 /*-----page header-----*/
 .page-header {
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* justify-content: ; */
   z-index: 5;
   overflow: hidden;
   position: fixed;
   top: 0; 
   text-transform: uppercase;
+  background: var(--dark-primary-color);
 }
 
 /*----logo----*/
 .brand {
   display: block;
   font-weight: bold;
-  background: var(--dark-primary-color);
   text-transform: uppercase;
   padding: 0.5rem;
 }
@@ -81,19 +84,36 @@ body {
   text-align: left;
 }
 
-/* #main {
-	margin: 0 auto;
-	width: 90%;
-	border: 3px solid green;
-} */
+.navbar-nav {
+  /* justify-self: end; */
+  text-align: right;
+  /* display: flex; */
+  padding: 1rem;
+}
+
+.navbar-nav a {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--text-primary-color);
+  letter-spacing: 0.068em;
+  text-decoration: none;
+  padding: 0.25rem 0.68rem;
+  border-radius: 0.3125rem;
+}
+
+
+.content {
+  padding-bottom: 1rem;
+}
 
 #intro {
-	padding-top: 10.25%;
+	padding-top: 3rem;
 }
 
 #headline {
-	text-align: center;
-	font-size: 5vh;
+  text-align: center;
+  color: var(--default-primary-color);
+	font-size: 4rem;
 	padding-bottom: 1rem;
   text-transform: uppercase;
 }
@@ -105,9 +125,7 @@ body {
 
 /*-----section----*/
 section {
-	margin: 0 auto;
-	border-bottom: 1px solid var(--default-primary-color);
-	padding: 1.25% 0;
+  margin: 2rem auto;
 }
 
 section .container {
@@ -148,41 +166,66 @@ section .container {
 
 /*-------Test UI------*/
 #testui {
-  width: 80%;
+  /* width: 90%; */
   margin: 0 auto;
-  justify-content: space-evenly;
+  justify-content: center;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 350px);
+  grid-template-columns: repeat(auto-fit, 500px);
   grid-column-gap: 1rem;
 }
 
-/*****Form****/
+/*-----Form-----*/
+.form-header {
+  color: var(--text-primary-color);
+  background: var(--default-primary-color);
+  text-align: center;
+  padding: 0.5rem;
+}
+
 .form {
   display: grid;
   grid-template-columns: 2fr 2fr 1fr;
-  grid-column-gap: 0;
+  grid-template-rows: 50px;
+  grid-column-gap: 1rem;
   grid-gap: 1rem;
   padding: 2rem ;
-  border: 2px solid red;
+  border: 1px solid var(--primary-text-color);
+}
+
+.input-field-txt {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0.25rem;
+  border: 1px solid var(--primary-text-color);
+  border-radius: 0.25rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#single-ticker {
+  grid-column: span 2;
 }
 
 .like-box {
+  height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  justify-content: center;
+  background: var(--overlay-text-color);
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
 }
 
 .search-btn {
-  grid-column: span 4;
-  font-size: 16px;
-  border-radius: 3px;
-  background-color: #E4F1FE;
-  border: 1px solid grey;
-  box-shadow: 2px 2px #999;
+  grid-column: span 3;
+  background: var(--light-primary-color);
+  border: 1px solid var(--primary-text-color);
+  box-shadow: 1px 1px #999;
   cursor: pointer;
-}
-
-#multi-stock-form .search-btn {
-    grid-column: 0 / 4;
+  border-radius: 0.25rem;
 }
 
 .search-btn:hover {
@@ -200,16 +243,6 @@ section .container {
   max-width: 25rem;
 	border-radius: 5px;
 } */
-
-.input-field-txt {
-  display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 16px;
-}
 
 
 
@@ -232,6 +265,22 @@ section .container {
   text-align: center;
 }
 
+/*----Documentation----*/
+.docs-wrapper {
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+  height: 100%;
+}
+.docs {
+  display: inline-block;
+  margin: 5rem auto;
+  width: 90vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+
 /*-------footer------*/
 footer {
   color: var(--text-primary-color);
@@ -240,6 +289,7 @@ footer {
   grid-template-columns: 1fr;
   justify-items: center;
   grid-gap: 1rem;
+  bottom: 0;
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 0;
@@ -307,7 +357,7 @@ footer #copyright-info {
 /*------Responsive design------*/
 @media only screen and (max-width: 768px) {
 	#intro {
-		padding-top: 15.25%;
+		padding-top: 2rem;
 	}
 
 	#headline {
@@ -316,6 +366,13 @@ footer #copyright-info {
 	
   section .container {
     padding: 0.25rem;
+  }
+  .docs-wrapper {
+    width: 100%;
+  }
+  .docs {
+    width: 100vw;
+    font-size: 0.65rem;
   }
 }
 
@@ -326,14 +383,11 @@ footer #copyright-info {
     font-size: 1rem;
   }
 
-  /* #intro {
-    padding-top: 25.25%;
-  } */
-
-    /*----navigation----*/
-  .brand {
-    text-align: center;
+  /*----navigation----*/
+  .navbar-nav {
+    padding: 0.5rem;
   }
+
 
   #headline {
     font-size: 4vh;
@@ -346,7 +400,12 @@ footer #copyright-info {
 	
 	.section-text code {
 		font-size: 0.9rem;
-	}
+  }
+  
+  /*-------Test UI------*/
+  #testui {
+    grid-template-columns: repeat(auto-fit, 350px);
+  }
 
   /*---footer----*/
   footer {
