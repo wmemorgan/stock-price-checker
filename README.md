@@ -4,9 +4,9 @@ A REST API that retrieves the latest stock price and monitors if it has been pre
 
 ---
 ### Development
-    * Frontend is built using HTML/CSS and Javascript to demonstrate API functions
-    * API is built using Node/Express and handles data creation, updates, and retrieval
-    * Backend is a MongoDB document database that stores user and exercise data
+  * Frontend is built using HTML/CSS and Javascript to demonstrate API functions
+  * API is built using Node/Express and handles data creation, updates, and retrieval
+  * Backend is a MongoDB document database that stores user and exercise data
 
 ---
 ### User Stories:
@@ -18,8 +18,6 @@ A REST API that retrieves the latest stock price and monitors if it has been pre
   6. A good way to receive current price is the following external API(replacing 'GOOG' with your stock): 
     `https://finance.google.com/finance/info?q=NASDAQ%3aGOOG`
   7. All 5 functional tests are complete and passing.
-
-__GET__ `/api/stock-prices`
 
 ---
 ### Example usage:
