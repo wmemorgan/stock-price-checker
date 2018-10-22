@@ -215,21 +215,25 @@ section .container {
   justify-content: center;
   background: var(--overlay-text-color);
   font-size: 0.75rem;
+  font-weight: bold;
   padding: 0.25rem;
   border-radius: 0.25rem;
 }
 
 .search-btn {
   grid-column: span 3;
+  
   background: var(--light-primary-color);
   border: 1px solid var(--primary-text-color);
   box-shadow: 1px 1px #999;
   cursor: pointer;
   border-radius: 0.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .search-btn:hover {
-  background-color: #FFFEC4;
+  background: var(--accent-color);
 }
 
 
