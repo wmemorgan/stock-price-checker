@@ -10,7 +10,7 @@ A REST API that retrieves the latest stock price and monitors if it has been pre
 
 ---
 ### User Stories:
-  1. Set the content security policies to only allow loading of scripts and css from your server.
+  1. Set the content security policies to only allow loading of scripts and css from your server (and fontawesome site).
   2. I can __GET__ `/api/stock-prices` with form data containing a Nasdaq stock ticker and recieve back an object stockData.
   3. In *stockData*, I can see the *stock*(string, the ticker), *price*(decimal in string format), and *likes*(int).
   4. I can also pass along field *like* as **true**(boolean) to have my like added to the stock(s). Only 1 like per IP address should be accepted.
