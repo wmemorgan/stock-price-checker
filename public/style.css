@@ -53,14 +53,6 @@ h1 {
   
 }
 
-.bold {
-  font-weight: bold;
-}
-
-p {
-  max-width: 900px;
-}
-
 form {
   margin: 0 auto;
   /* margin-bottom: 25px; */
@@ -148,19 +140,6 @@ code {
   text-transform: uppercase;
 }
 
-.card-img {
-  text-align: center;
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-  height: auto;
-}
-
-.card-img img {
-  width: 200px;
-  object-fit: contain;
-}
-
 #subtitle {
 	text-align: center;
 	font-size: 1rem;
@@ -209,22 +188,19 @@ section .container {
   margin: 0 auto;
 }
 
-/*-----iframe-----*/
-.resp-container {
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%;
+/*-------Test UI------*/
+#testui {
+  margin: 0 auto;
+  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
 }
 
-.resp-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+#jsonResult {
+ margin: 0 auto;
+ width: 100%;
+ border: 1px solid blue;
 }
-
 
 /*-------footer------*/
 footer {
