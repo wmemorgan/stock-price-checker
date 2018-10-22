@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./public/style.css">
   </head>
   <body>
+  <div class="page-container">
   <!-- Header -->
   <div class="page-header">
     <!-- Logo -->
@@ -25,54 +26,57 @@
   </div>
 
   <!-- Main Body -->
-  <div class="container" id="main">
-    <!-- Home Page -->
-    <section id="intro">
-      <div class="container">
-        <h1 id="headline">Stock Price Checker</h1>
-        <div class="section-doc">
-          <p>
-            A REST API that retrieves the latest stock price and monitors if it has been previously selected.
-          </p>
+    <div class="content">
+      <!-- Home Page -->
+      <section id="intro">
+        <div class="container">
+          <h1 id="headline">Stock Price Checker</h1>
+          <div class="section-doc">
+            <p>
+              A REST API that retrieves the latest stock price and monitors if it has been previously selected.
+            </p>
+          </div>
+      
         </div>
+      </section>
+      <!-- Frontend -->
+      <!-- Design based on: https://yagoestevez-stock-price-checker.glitch.me/ -->
+      <section class="section">
+        <!-- Test UI -->
+        <div id="testui">
+          <div class="form-wrapper">
+            <h3 class="form-header">Get single price and total likes</h3>
+            <form id="single-stock-form" class="form border">
+              <input type="text" id="single-ticker" class="input-field-txt" name="stock" placeholder="goog" required=''>
+              <div class="like-box">
+                Like? &nbsp;<input type="checkbox" class="input-checkbox" name="like" value=true>
+              </div>
+              <button type="submit" class="search-btn">Get Price!</button>
+            </form>
+          </div>
+      
+          <div class="form-wrapper">
+            <h3 class="form-header">Compare and get relative likes</h3>
+            <form id="multi-stock-form" class="form border">
+              <input type="text" class="input-field-txt" name="stock" placeholder="goog" required=''>
+              <input type="text" class="input-field-txt" name="stock" placeholder="msft" required=''>
+              <div class="like-box">
+                Like both? &nbsp;<input type="checkbox" class="input-checkbox" name="like" value=true>
+              </div>
+              <button type="submit" class="search-btn">Get Price!</button>
+            </form>
+          </div>
+      
+        </div>
+        <code id='jsonResult' class="code"></code>
+      </section>
+      <section class="section" id="stock-data-credits">
+        <p>Data provided for free by <a href="https://iextrading.com/developer">IEX</a>. View <a href="https://iextrading.com/api-exhibit-a/">IEX’s
+            Terms of Use</a>.</p>
+      
+      </section>
+    </div>
   
-      </div>
-    </section>
-    <!-- Frontend -->
-    <!-- Design based on: https://yagoestevez-stock-price-checker.glitch.me/ -->
-    <section class="section">
-      <!-- Test UI -->
-      <div id="testui">
-        <div class="form-wrapper">
-          <h3 class="form-header">Get single price and total likes</h3>
-          <form id="single-stock-form" class="form border">
-            <input type="text" id="single-ticker" class="input-field-txt" name="stock" placeholder="goog" required=''>
-            <div class="like-box">
-              Like? &nbsp;<input type="checkbox" class="input-checkbox" name="like" value=true>
-            </div> 
-            <button type="submit" class="search-btn">Get Price!</button>
-          </form>
-        </div>
-
-      <div class="form-wrapper">
-          <h3 class="form-header">Compare and get relative likes</h3>
-          <form id="multi-stock-form" class="form border">
-            <input type="text" class="input-field-txt" name="stock" placeholder="goog" required=''>
-            <input type="text" class="input-field-txt" name="stock" placeholder="msft" required=''>
-            <div class="like-box">
-              Like both? &nbsp;<input type="checkbox" class="input-checkbox" name="like" value=true>
-            </div>
-            <button type="submit" class="search-btn">Get Price!</button>
-          </form>
-      </div>
-
-      </div>
-      <code id='jsonResult' class="code"></code>
-    </section>
-    <section class="section" id="stock-data-credits">
-      <p>Data provided for free by <a href="https://iextrading.com/developer">IEX</a>. View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a>.</p>
-
-    </section>
     <!-- Footer -->
     <footer class="footer">
       <div class="cta-group">
@@ -105,6 +109,7 @@
         <p><a href="https://wilfredmorgan.com">wilfredmorgan.com</a></p>
       </div>
     </footer>
+    </div>
     <!-- Your web-app is https, so your scripts need to be too -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
