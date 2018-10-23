@@ -58,7 +58,6 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* justify-content: ; */
   z-index: 5;
   overflow: hidden;
   position: fixed;
@@ -85,9 +84,7 @@ body {
 }
 
 .navbar-nav {
-  /* justify-self: end; */
   text-align: right;
-  /* display: flex; */
   padding: 1rem;
 }
 
@@ -131,42 +128,10 @@ section {
 section .container {
   background: var(--container-bg-color);
   margin: 0 auto;
-  /* padding: 2rem 0; */
-}
-
-.section-title {
-  position: relative;
-  font-size: 1.25rem;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  max-width: 991px;
-  color: var(--dark-primary-color);
-  margin: 0 auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.section-doc {
-  color: var(--primary-text-color);
-  max-width: 850px;
-  padding: 0 10vw;
-  text-align: left;
-  margin: 0 auto;
-}
-
-.section-text {
-  color: var(--primary-text-color);
-  /* background: #C5CAE9; */
-  max-width: 850px;
-  padding: 0 0 0 10vw;
-  text-align: left;
-  margin: 0 auto;
 }
 
 /*-------Test UI------*/
 #testui {
-  /* width: 90%; */
   margin: 0 auto;
   justify-content: center;
   display: grid;
@@ -272,7 +237,6 @@ section .container {
   box-sizing: border-box;
 }
 
-
 /*-------footer------*/
 footer {
   color: var(--text-primary-color);
@@ -298,8 +262,6 @@ footer * {
 footer a:hover, footer button:hover{
   border-bottom: 2px solid var(--text-primary-color);
   border-radius: 0%;
-  /* background-color: var(--text-primary-color);
-  color: var(--dark-primary-color); */
 }
 
 footer .cta-btn {
