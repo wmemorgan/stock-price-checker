@@ -236,25 +236,13 @@ section .container {
   background: var(--accent-color);
 }
 
-
-
-/* form {
-  margin: 0 auto;
-  padding: 1rem;
-  background: var(--overlay-bg-color);
-  display: block;
-  width: 100%;
-  max-width: 25rem;
-	border-radius: 5px;
-} */
-
-
-
 .code {
   font-family: monospace;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--default-primary-color);
   background-color: var(--light-primary-color);
-  padding: 0.25rem;
+  padding: 0.5rem;
 }
 
 #jsonResult {
@@ -396,19 +384,15 @@ footer #copyright-info {
   #headline {
     font-size: 1.5rem;
   }
-
-  /*----section----*/
-  .section-text {
-    padding: 0 5vw;
-	}
-	
-	.section-text code {
-		font-size: 0.9rem;
-  }
   
   /*-------Test UI------*/
   #testui {
     grid-template-columns: repeat(auto-fit, 350px);
+  }
+
+  /*-----Code-----*/
+  .code {
+    font-size: 0.75rem;
   }
 
   /*---footer----*/
