@@ -1,4 +1,4 @@
-# Stock Price Checker (55)
+# Stock Price Checker
 
 A REST API for checking the latest stock prices of publicly traded companies.
 
