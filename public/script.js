@@ -18,20 +18,14 @@ const getFormData = (form) => {
 // Query stock data
 const getStockData = (url) => {
   document.getElementById('jsonResult').innerText = 'Loading data. Please wait...'
-  fetch(url, {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json, text/plain, */*',
-      'Content-type': 'application/json'
-    }
-  })
+  fetch(url)
     .then((res) => res.json())
     .then((data) => {
       document.getElementById('jsonResult').innerText = JSON.stringify(data)
     })
 }
 
-//Assign functions to forms
+//Assign form handling functions to forms
 for (let i = 0; i < document.forms.length; i++) {
   document.forms[i].onsubmit = (e) => {
     e.preventDefault()
