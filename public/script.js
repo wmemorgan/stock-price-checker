@@ -1,4 +1,3 @@
-
 // Form data handler
 const endPoint = '/api/stock-prices'
 
@@ -12,9 +11,7 @@ const getFormData = (form) => {
   let query = Object.keys(params)
     .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
     .join('&')
-  console.log(`query params: `, query)
   let url = `${endPoint}?${query}`
-  console.log(`url is ${url}`)
   return url 
 }
 
@@ -30,10 +27,8 @@ const getStockData = (url) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log('JSON is: ', data)
       document.getElementById('jsonResult').innerText = JSON.stringify(data)
     })
-  
 }
 
 //Assign functions to forms
