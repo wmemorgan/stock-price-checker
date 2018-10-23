@@ -20,7 +20,7 @@ app.use(helmet({
   contentSecurityPolicy: {   // enable and configure
     directives: {
       styleSrc: ["'self'", "use.fontawesome.com", "fonts.googleapis.com"],
-      scriptSrc: ["'self'", "code.jquery.com"],
+      scriptSrc: ["'self'"],
     }
   }
 }))
