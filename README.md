@@ -1,6 +1,6 @@
 # Stock Price Checker
 
-A REST API that retrieves the latest stock price and monitors if it has been previously selected.
+A REST API for checking the latest stock prices of publicly traded companies.
 
 ---
 ### Development
