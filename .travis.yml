@@ -11,10 +11,10 @@ branches:
 #   - npm install -g npm@5
 
 before_script:
+  - npm run updateDoc
   - npm prune
 
 script:
-  - npm run updateDoc
   - npx sync-glitch-cli
 
 notifications:
