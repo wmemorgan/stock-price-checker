@@ -110,7 +110,7 @@ body {
 #headline {
   text-align: center;
   color: var(--default-primary-color);
-	font-size: 3rem;
+	font-size: 2.5rem;
 	padding-bottom: 1rem;
   text-transform: uppercase;
 }
@@ -127,6 +127,14 @@ section {
 
 section .container {
   background: var(--container-bg-color);
+  margin: 0 auto;
+}
+
+.section-doc {
+  color: var(--primary-text-color);
+  max-width: 850px;
+  /* padding: 0 10vw;*/
+  text-align: center;
   margin: 0 auto;
 }
 
@@ -315,7 +323,7 @@ footer #copyright-info {
 	}
 
 	#headline {
-    font-size: 2rem;
+    font-size: 1.75rem;
 	}
 	
   section .container {
@@ -344,7 +352,7 @@ footer #copyright-info {
 
 
   #headline {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
   
   /*-------Test UI------*/
